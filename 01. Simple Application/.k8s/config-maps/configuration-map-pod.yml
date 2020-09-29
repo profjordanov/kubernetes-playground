@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    name: web
+spec:
+  containers:
+  - name: my-simple-web-app
+    image: ivaylokenov/simple-web-app:3.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    envFrom:
+    - configMapRef:
+        name: my-settings
+    ports:
+      - containerPort: 8080

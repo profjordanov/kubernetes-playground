@@ -1,0 +1,13 @@
+{
+  "name": "container-test",
+  "private": true,
+  "version": "0.0.2",
+  "description": "Demo app",
+  "main": "app.js",
+  "author": "Code It Up",
+  "license": "Not for production!",
+  "dependencies": {
+    "express": "4.17.1",
+    "pug": "2.0.4"
+  }
+}
