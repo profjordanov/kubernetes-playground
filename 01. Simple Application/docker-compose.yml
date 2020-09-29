@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+    simpleapp:
+        container_name: simpleapp
+        build: .
+        ports: 
+            - "8080:8080"
+        restart: on-failure
+      
