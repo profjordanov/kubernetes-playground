@@ -1,6 +1,6 @@
 FROM node:current-slim
 
-LABEL MAINTAINER=CodeItUp
+LABEL MAINTAINER=JJordanov
 
 # Copy source code to /src in container
 COPY . /src
