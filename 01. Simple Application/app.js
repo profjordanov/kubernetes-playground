@@ -15,5 +15,5 @@ if (process.env.ENEMIES) {
 }
 
 app.listen(8080);
-console.log('Code It Up app up and running!');
+console.log('App up and running!');
 module.exports.getApp = app;
