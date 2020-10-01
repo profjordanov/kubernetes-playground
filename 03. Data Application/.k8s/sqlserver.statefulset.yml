@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sqlserver
+  labels:
+    app: sqlserver
+spec:
+  serviceName: sqlserver
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: sqlserver
+  template:
+    metadata:
+      labels:
+        app: sqlserver
+    spec:
+      volumes:
+      - name: sqldata
+        persistentVolumeClaim:
+          claimName: sqldata
+      containers:
+      - env:
+        - name: ACCEPT_EULA
+          valueFrom:
+            configMapKeyRef:
+              key: ACCEPT_EULA
+              name: sqlserver-configuration
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: SA_PASSWORD
+              name: sqlserver-secret
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        name: sqlserver
+        ports:
+        - containerPort: 1433
+        volumeMounts:
+        - mountPath: /var/opt/mssql
+          name: sqldata
+      restartPolicy: Always
+    
