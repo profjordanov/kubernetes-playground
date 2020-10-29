@@ -1,0 +1,8 @@
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\bin\Debug\netcoreapp3.1\CarRentalSystem.deps.json
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\bin\Debug\netcoreapp3.1\CarRentalSystem.dll
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\bin\Debug\netcoreapp3.1\CarRentalSystem.pdb
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\obj\Debug\netcoreapp3.1\CarRentalSystem.AssemblyInfoInputs.cache
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\obj\Debug\netcoreapp3.1\CarRentalSystem.AssemblyInfo.cs
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\obj\Debug\netcoreapp3.1\CarRentalSystem.csproj.CoreCompileInputs.cache
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\obj\Debug\netcoreapp3.1\CarRentalSystem.dll
+C:\Users\yoyordan\Downloads\Kubernetes\Workshop\Application\Server\CarRentalSystem\obj\Debug\netcoreapp3.1\CarRentalSystem.pdb
