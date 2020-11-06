@@ -1,5 +1,5 @@
 # Car Rental System
-
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ddb0bd7ff72e4e689d7b6f6ce6d5e029)](https://app.codacy.com/gh/profjordanov/kubernetes-playground?utm_source=github.com&utm_medium=referral&utm_content=profjordanov/kubernetes-playground&utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/profjordanov/kubernetes-playground.svg?branch=master)](https://travis-ci.com/profjordanov/kubernetes-playground)
 
