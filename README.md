@@ -9,7 +9,6 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 ## The application uses the following technologies:
 - RabbitMQ as an event bus and message broker.
 - SQL Server 2019 as a database provider.
-- ASP.NET Core 3.1 running on Kestrel as a web server for all
-- rvices except the user client.
+- ASP.NET Core 3.1 running on Kestrel as a web server for all services except the user client.
 - SignalR for the real-time notifications service.
 - Angular running on nginx for the front-end user client.
