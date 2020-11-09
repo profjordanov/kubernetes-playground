@@ -12,3 +12,13 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 - ASP.NET Core 3.1 running on Kestrel as a web server for all services except the user client.
 - SignalR for the real-time notifications service.
 - Angular running on nginx for the front-end user client.
+
+## Application Architecture
+- Event Bus – a message queue system allowing communication between the back-end services in an asynchronous manner.
+- Identity Service – a restful API providing functionality for authentication and authorization. This service has its own database.
+- Dealers Service – a restful API providing functionalities for dealers to create profiles and publish car ads. Exposes endpoints for searching and viewing car ads. This service has its own database and communicates with the event bus.
+- Statistics Service – a restful API providing functionalities for storing and retrieving usage statistics – the total car ads in the system, for example. This service has its own database and communicates with the event bus.
+- Notifications Service – a web service, which sends notifications to the client through web sockets. Communicates with the event bus.
+- User Client – a front-end service, which serves a single-page application to the end-users. Communicates with the identity, dealers, statistics, and notifications services to receive and visualize data.
+- Admin Client – a front-end service, which is used by the business administrators. Communicates with the identity, dealers, and statistics services to receive and visualize data.
+- Watchdog Client – periodically calls all the other services to validate their health state and availability
