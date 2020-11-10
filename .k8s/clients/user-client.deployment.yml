@@ -1,27 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dealers-service
+  name: user-client
 spec:
   selector:
     matchLabels:
-      web-service: dealers
+      web-client: user-client
   template:
     metadata:
       labels:
-        web-service: dealers
-        system: server
+        web-client: user-client
+        system: client
     spec:
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchLabels:
-                web-service: dealers
-            topologyKey: "kubernetes.io/hostname"
       containers:
-      - name: dealers-service
-        image: profjordanov/carrentalsystem-dealers-service:1.0
+      - name: user-client
+        image: profjordanov/carrentalsystem-user-client:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -29,46 +22,3 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "250m"
-        env:
-        - name: ApplicationSettings__Secret
-          valueFrom:
-            secretKeyRef:
-              name: environment-secrets
-              key: security-token-secret
-        - name: ApplicationSettings__SeedInitialData
-          valueFrom:
-            configMapKeyRef:
-              name: environment-settings
-              key: seed-initial-data
-        - name: ConnectionStrings__DefaultConnection
-          valueFrom:
-            secretKeyRef:
-              name: environment-secrets
-              key: dealers-service-connection-string
-        - name: ConnectionStrings__CronJobsConnection
-          valueFrom:
-            secretKeyRef:
-              name: environment-secrets
-              key: dealers-service-cron-jobs-connection-string
-        - name: MessageQueueSettings__Host
-          valueFrom:
-            configMapKeyRef:
-              name: environment-settings
-              key: event-bus-host
-        - name: MessageQueueSettings__UserName
-          valueFrom:
-            configMapKeyRef:
-              name: environment-settings
-              key: event-bus-user
-        - name: MessageQueueSettings__Password
-          valueFrom:
-            secretKeyRef:
-              name: environment-secrets
-              key: event-bus-password
-        volumeMounts:
-        - name: dealers-service-data
-          mountPath: /root/.aspnet/DataProtection-Keys
-      volumes:
-      - name: dealers-service-data
-        persistentVolumeClaim:
-          claimName: dealers-service-data
