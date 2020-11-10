@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: statistics-service
+spec:
+  selector:
+    matchLabels:
+      web-service: statistics
+  template:
+    metadata:
+      labels:
+        web-service: statistics
+        system: server
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                web-service: statistics
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: statistics-service
+        image: profjordanov/carrentalsystem-statistics-service:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        env:
+        - name: ApplicationSettings__Secret
+          valueFrom:
+            secretKeyRef:
+              name: environment-secrets
+              key: security-token-secret
+        - name: ApplicationSettings__SeedInitialData
+          valueFrom:
+            configMapKeyRef:
+              name: environment-settings
+              key: seed-initial-data
+        - name: ConnectionStrings__DefaultConnection
+          valueFrom:
+            secretKeyRef:
+              name: environment-secrets
+              key: statistics-service-connection-string
+        - name: ConnectionStrings__CronJobsConnection
+          valueFrom:
+            secretKeyRef:
+              name: environment-secrets
+              key: statistics-service-cron-jobs-connection-string
+        - name: MessageQueueSettings__Host
+          valueFrom:
+            configMapKeyRef:
+              name: environment-settings
+              key: event-bus-host
+        - name: MessageQueueSettings__UserName
+          valueFrom:
+            configMapKeyRef:
+              name: environment-settings
+              key: event-bus-user
+        - name: MessageQueueSettings__Password
+          valueFrom:
+            secretKeyRef:
+              name: environment-secrets
+              key: event-bus-password
+        volumeMounts:
+        - name: statistics-service-data
+          mountPath: /root/.aspnet/DataProtection-Keys
+      volumes:
+      - name: statistics-service-data
+        persistentVolumeClaim:
+          claimName: statistics-service-data
