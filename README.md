@@ -22,3 +22,13 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 - User Client – a front-end service, which serves a single-page application to the end-users. Communicates with the identity, dealers, statistics, and notifications services to receive and visualize data.
 - Admin Client – a front-end service, which is used by the business administrators. Communicates with the identity, dealers, and statistics services to receive and visualize data.
 - Watchdog Client – periodically calls all the other services to validate their health state and availability
+
+# Key Kubernetes Concepts
+- Node – a machine running your pods. Part of the cluster’s physical infrastructure.
+- Pod – an application running containers on your nodes. The smallest unit of deployment. Provides resource limitations. You should never deploy pods directly.
+- ConfigMap – contains visible key-value pair configuration. Useful for application settings.
+- Secret – contains secret key-value pair configuration. Useful for passwords, connection strings, and more.
+- Persistent Volume Claim – used for requesting dynamically provisioned storage. Persistence depends on the infrastructure.
+- StatefulSet – deployment manifest for pods that have a state. Useful for databases, cache servers, and more.
+- Deployment – deployment manifest for pods with stateless servers. Useful for API servers. Allows easy pod updating, scaling, and replicating.
+- Service – provides an internal or external networking interface for the cluster. Supports load balancing.
