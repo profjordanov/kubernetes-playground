@@ -32,3 +32,15 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 - StatefulSet – deployment manifest for pods that have a state. Useful for databases, cache servers, and more.
 - Deployment – deployment manifest for pods with stateless servers. Useful for API servers. Allows easy pod updating, scaling, and replicating.
 - Service – provides an internal or external networking interface for the cluster. Supports load balancing.
+
+## Getting Started
+Run local Kubernetes cluster from '.k8s' folder:
+- kubectl apply -f .\.environment\
+- kubectl apply -f .\databases\
+- kubectl apply -f .\event-bus\
+- kubectl apply -f .\web-services\
+- kubectl apply -f .\clients\
+
+Delete all Kubernetes objects:
+- kubectl delete all --all
+- kubectl delete pvc --all
