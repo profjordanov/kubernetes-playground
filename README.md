@@ -32,6 +32,15 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 - StatefulSet – deployment manifest for pods that have a state. Useful for databases, cache servers, and more.
 - Deployment – deployment manifest for pods with stateless servers. Useful for API servers. Allows easy pod updating, scaling, and replicating.
 - Service – provides an internal or external networking interface for the cluster. Supports load balancing.
+- Pod health - configure liveness, readiness, and startup probes.
+- Rolling Update – configure zero-down deployments.
+- Autoscalers – horizontal and vertical autoscaling.
+- Ingress – reverse proxy and its configuration.
+- Annotations – add metadata to your pods.
+- Init Containers – understand the concept of initialization containers.
+- Node Affinity – node affinity works in detail.
+- Monitoring – advanced monitoring tools like Prometheus and Grafana.
+- Service Accounts – cluster authorization.
 
 ## Getting Started
 Run local Kubernetes cluster from '.k8s' folder:
