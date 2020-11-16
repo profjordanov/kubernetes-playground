@@ -23,7 +23,14 @@ When a user chooses a car, she needs to call the dealer on the provided phone an
 - Admin Client – a front-end service, which is used by the business administrators. Communicates with the identity, dealers, and statistics services to receive and visualize data.
 - Watchdog Client – periodically calls all the other services to validate their health state and availability
 
-# Key Kubernetes Concepts
+# Kubernetes
+- container management system
+- orchestrator for our application
+- solving challenges from having distributed applications
+- managing containers at scale
+- consider the high-level operations you do with code
+- similar in terms of cloud operations (write instructions and the cluster transfers them to the cloud machines)
+## Key Kubernetes Concepts
 - Node – a machine running your pods. Part of the cluster’s physical infrastructure.
 - Pod – an application running containers on your nodes. The smallest unit of deployment. Provides resource limitations. You should never deploy pods directly.
 - ConfigMap – contains visible key-value pair configuration. Useful for application settings.
