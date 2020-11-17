@@ -60,3 +60,14 @@ Run local Kubernetes cluster from '.k8s' folder:
 Delete all Kubernetes objects:
 - kubectl delete all --all
 - kubectl delete pvc --all
+
+Some others:
+- kubectl config current-context - make sure Kubernetes it is up and running 
+- kubectl get sc - default storage class in the cluster 
+- kubectl get pods
+- kubectl describe pods {pod-name}
+- kubectl delete pods {pod-name}
+- kubectl logs {pod-name}
+- kubectl get services
+- kubectl describe services {service-name}
+- kubectl get pv -  persistent volumes
