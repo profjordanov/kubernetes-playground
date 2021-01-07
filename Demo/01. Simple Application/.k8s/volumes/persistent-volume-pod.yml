@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-volume-pod
+spec:
+  volumes:
+    - name: attached-volume
+      persistentVolumeClaim:
+        claimName: my-pvc
+  containers:
+  - image: ubuntu:latest
+    name: my-ubuntu
+    command:
+    - /bin/bash
+    - "-c"
+    - "sleep 60m"
+    volumeMounts: 
+    - mountPath: /data
+      name: attached-volume
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
